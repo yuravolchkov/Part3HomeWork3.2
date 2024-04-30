@@ -5,34 +5,45 @@
 
 class Counter
 {
-public:
-    int FirstNumber = 1;
+private:
+    int FirstNumber;
 
-    void SetFirstNumber(int FirstNumber);
+public:
+    int GetterForNumber()
+    {
+        return FirstNumber;
+    }
+
+    void SetterForFirstNumber(int FirstNumber)
+    {
+        this->FirstNumber = FirstNumber;
+    }
+
+    Counter() : FirstNumber(1)
+    {
+    }
+
     void IncFirstNumber();
     void DecFirstNumber();
     void ShowFirstNumber();
 
 };
 
-void Counter::SetFirstNumber(int FirstNumber) 
-{
-    this->FirstNumber = FirstNumber;
-}
+
 
 void Counter::IncFirstNumber()
 {
-    this->FirstNumber = this->FirstNumber + 1;
+    SetterForFirstNumber(GetterForNumber() + 1);
 }
 
 void Counter::DecFirstNumber() 
 {
-    this->FirstNumber = this->FirstNumber - 1;
+    SetterForFirstNumber(GetterForNumber() - 1);
 }
 
 void Counter::ShowFirstNumber()
 {
-    std::cout << this -> FirstNumber << std::endl;
+    std::cout << GetterForNumber() << std::endl;
 }
 
 int main()
@@ -51,7 +62,7 @@ int main()
     {
         std::cout << "Введите начальное значение счётчика: ";
         std::cin >> FirstNumber;
-        UnbelievableCode.SetFirstNumber(FirstNumber);
+        UnbelievableCode.SetterForFirstNumber(FirstNumber);
     }
     
     for (int i=0; i!=1;)
