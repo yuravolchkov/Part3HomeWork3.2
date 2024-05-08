@@ -19,7 +19,7 @@ public:
         this->FirstNumber = FirstNumber;
     }
 
-    Counter() : FirstNumber(1)
+    Counter(int Input_From_Main) : FirstNumber(Input_From_Main)
     {
     }
 
@@ -54,7 +54,7 @@ int main()
     
     std::string YesNoAction;
     int FirstNumber;
-    Counter UnbelievableCode;
+    Counter UnbelievableCode{1};
 
     std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     std::cin >> YesNoAction;
