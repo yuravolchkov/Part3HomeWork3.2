@@ -1,50 +1,26 @@
-﻿// homework3.2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
+#include <string>
 
 class Counter
 {
 private:
     int FirstNumber;
-
 public:
-    int GetterForNumber()
+    Counter() : FirstNumber(1) {}
+    Counter(int Input_From_Main) : FirstNumber(Input_From_Main) {}
+    void IncFirstNumber()
     {
-        return FirstNumber;
+        FirstNumber = FirstNumber + 1;
     }
-
-    void SetterForFirstNumber(int FirstNumber)
+    void DecFirstNumber()
     {
-        this->FirstNumber = FirstNumber;
+        FirstNumber = FirstNumber - 1;
     }
-
-    Counter(int Input_From_Main) : FirstNumber(Input_From_Main)
+    void ShowFirstNumber()
     {
+        std::cout << FirstNumber << std::endl;
     }
-
-    void IncFirstNumber();
-    void DecFirstNumber();
-    void ShowFirstNumber();
-
 };
-
-
-
-void Counter::IncFirstNumber()
-{
-    SetterForFirstNumber(GetterForNumber() + 1);
-}
-
-void Counter::DecFirstNumber() 
-{
-    SetterForFirstNumber(GetterForNumber() - 1);
-}
-
-void Counter::ShowFirstNumber()
-{
-    std::cout << GetterForNumber() << std::endl;
-}
 
 int main()
 {
@@ -53,16 +29,16 @@ int main()
     std::system("cls"); // очистить экран
     
     std::string YesNoAction;
-    int FirstNumber;
-    Counter UnbelievableCode{1};
-
+    int First_Number_from_main;
+    Counter UnbelievableCode{ };
+    
     std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     std::cin >> YesNoAction;
     if (YesNoAction == "да")
     {
         std::cout << "Введите начальное значение счётчика: ";
-        std::cin >> FirstNumber;
-        UnbelievableCode.SetterForFirstNumber(FirstNumber);
+        std::cin >> First_Number_from_main;
+        UnbelievableCode = Counter { First_Number_from_main };
     }
     
     for (int i=0; i!=1;)
@@ -92,16 +68,5 @@ int main()
         }
     }
 
-    return 2;
+    return 32;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
